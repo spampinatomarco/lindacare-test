@@ -6,7 +6,7 @@ package com.spdev.lindacaretest.exception;
  * @author marco
  *
  */
-public class JwtAuthentificationException extends Exception {
+public class JwtAuthentificationException extends RuntimeException {
 
 	private static final long serialVersionUID = -8414473412062757018L;
 

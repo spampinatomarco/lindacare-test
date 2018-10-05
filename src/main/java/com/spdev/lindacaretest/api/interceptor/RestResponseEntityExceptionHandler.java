@@ -10,7 +10,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.spdev.lindacaretest.api.dto.DefaultApiResponse;
-import com.spdev.lindacaretest.exception.InvalidApiParameterException;
+import com.spdev.lindacaretest.exception.LindacareInvalidParameterException;
 import com.spdev.lindacaretest.exception.JwtAuthentificationException;
 
 /**
@@ -43,7 +43,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 		return new ResponseEntity<Object>(result, new HttpHeaders(), HttpStatus.FORBIDDEN);
 	}
 
-	@ExceptionHandler({ InvalidApiParameterException.class })
+	@ExceptionHandler({ LindacareInvalidParameterException.class })
 	public ResponseEntity<Object> handleProcessApiRequestException(Exception ex, WebRequest request) {
 		logger.error("Caught InvalidApiParameterException:", ex);
 

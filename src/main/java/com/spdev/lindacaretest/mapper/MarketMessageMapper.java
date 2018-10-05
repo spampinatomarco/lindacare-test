@@ -1,9 +1,11 @@
 package com.spdev.lindacaretest.mapper;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 import com.spdev.lindacaretest.api.dto.ApiMarketMessage;
+import com.spdev.lindacaretest.api.dto.request.ApiMarketMessagePostRequest;
 import com.spdev.lindacaretest.model.MarketMessage;
 
 /**
@@ -17,5 +19,9 @@ public interface MarketMessageMapper {
 
 	ApiMarketMessage to(MarketMessage marketMessage);
 
-	MarketMessage from(ApiMarketMessage ecu);
+	@Mapping(target = "id", ignore = true)
+	MarketMessage from(ApiMarketMessage apiMarketMessage);
+
+	@Mapping(target = "id", ignore = true)
+	MarketMessage from(ApiMarketMessagePostRequest request);
 }

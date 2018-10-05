@@ -26,6 +26,7 @@
 		<com.google.guava.version>26.0-jre</com.google.guava.version>
 		<org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
 		<io.springfox.version>2.8.0</io.springfox.version>
+		<org.lable.oss.uniqueid.version>2.0</org.lable.oss.uniqueid.version>
 	</properties>
 
 	<dependencies>
@@ -47,6 +48,7 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -83,11 +85,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
@@ -99,6 +96,11 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.lable.oss.uniqueid</groupId>
+			<artifactId>uniqueid-core</artifactId>
+			<version>${org.lable.oss.uniqueid.version}</version>
+		</dependency>
 
 	</dependencies>
 
