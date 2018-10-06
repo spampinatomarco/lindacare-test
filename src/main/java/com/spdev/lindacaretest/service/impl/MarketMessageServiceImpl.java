@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -84,5 +86,12 @@ public class MarketMessageServiceImpl implements MarketMessageService {
 			throw new LindacareInvalidParameterException(String.format("The user with the id :d doesn't exist", userId));
 		}
 
+	}
+
+	@Override
+	public Page<MarketMessage> findAll(Pageable pageable) {
+		Assert.notNull(pageable, "The pageable should be not null");
+
+		return marketMessageRepository.findAll(pageable);
 	}
 }

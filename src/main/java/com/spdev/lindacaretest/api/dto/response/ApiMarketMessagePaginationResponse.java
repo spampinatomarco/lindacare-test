@@ -1,6 +1,6 @@
 package com.spdev.lindacaretest.api.dto.response;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 import com.spdev.lindacaretest.api.dto.ApiMarketMessage;
 import com.spdev.lindacaretest.api.dto.DefaultApiResponse;
@@ -15,12 +15,12 @@ public class ApiMarketMessagePaginationResponse extends DefaultApiResponse {
 
 	private static final long serialVersionUID = -2749486205919367775L;
 
-	private List<ApiMarketMessage> marketMessages;
+	private Page<ApiMarketMessage> marketMessages;
 
 	/**
 	 * @return the marketMessages
 	 */
-	public List<ApiMarketMessage> getMarketMessages() {
+	public Page<ApiMarketMessage> getMarketMessages() {
 		return marketMessages;
 	}
 
@@ -28,7 +28,8 @@ public class ApiMarketMessagePaginationResponse extends DefaultApiResponse {
 	 * @param marketMessages
 	 *            the marketMessages to set
 	 */
-	public void setMarketMessages(List<ApiMarketMessage> marketMessages) {
+	public void setMarketMessages(Page<ApiMarketMessage> marketMessages) {
 		this.marketMessages = marketMessages;
 	}
+
 }

@@ -26,6 +26,8 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = "Lindacare backend api.")
 public interface LindacareApi {
 
+	public final static int MAX_PAGE_SIZE = 100;
+
 	public static final String MESSAGES_PATH = "/messages";
 
 	/**
@@ -34,26 +36,25 @@ public interface LindacareApi {
 	 * @param request
 	 * @return
 	 */
+	// I don't finish the swagger configuration, I will focus on the front end
 	@ApiOperation(value = "Allows users to post MarketMessages", response = ApiMarketMessagePostResponse.class)
-	@ApiResponses(value = { 
-			@ApiResponse(code = 200, message = "Message save."), 
-			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Message save."), @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Provided credentials can't be authenticated."),
-			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found"), 
-			@ApiResponse(code = 500, message = "Error occured.") })
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found"), @ApiResponse(code = 500, message = "Error occured.") })
 	@PostMapping(value = MESSAGES_PATH, produces = { MediaType.APPLICATION_JSON_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	ResponseEntity<ApiMarketMessagePostResponse> postMarketMessage(@RequestBody ApiMarketMessagePostRequest request);
-	
-	
 
+	/**
+	 * Return the MarketMessage with a pagination
+	 * @param pageable
+	 * @return
+	 */
+	// I don't finish the swagger configuration, I will focus on the front end
 	@ApiOperation(value = "Get all MarketMessage with pagination")
-	@ApiResponses(value = { 
-			@ApiResponse(code = 200, message = "Message save."), 
-			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Message save."), @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Provided credentials can't be authenticated."),
-			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found"), 
-			@ApiResponse(code = 500, message = "Error occured.") })
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found"), @ApiResponse(code = 500, message = "Error occured.") })
 	@GetMapping(value = MESSAGES_PATH, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<ApiMarketMessagePaginationResponse> getMarketMessages(Pageable pageable);
 }
